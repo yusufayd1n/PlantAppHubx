@@ -71,6 +71,7 @@ dependencies {
 
     //OKHttp
     implementation(libs.okhttp)
+    implementation (libs.logging.interceptor)
 
     //Retrofit
     implementation (libs.retrofit)
@@ -84,4 +85,7 @@ dependencies {
 
     //Paging 3
     implementation(libs.androidx.paging.runtime.ktx)
+
+    //Gson
+    implementation (libs.converter.gson)
 }
