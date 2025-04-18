@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlin.ksp)
     alias(libs.plugins.hilt)
     alias(libs.plugins.navigation.safe.args)
+    alias(libs.plugins.kotlin.kapt)
 }
 
 android {
@@ -33,6 +34,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
     compileOptions {
@@ -82,6 +84,7 @@ dependencies {
 
     //Glide
     implementation (libs.glide)
+    kapt (libs.compiler)
 
     //Paging 3
     implementation(libs.androidx.paging.runtime.ktx)
