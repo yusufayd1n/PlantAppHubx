@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.plantapphubx.data.remote.dto.QuestionsResponse
+import com.example.plantapphubx.data.remote.model.QuestionsResponse
 import com.example.plantapphubx.databinding.ItemQuestionBinding
 
 class QuestionsAdapter :

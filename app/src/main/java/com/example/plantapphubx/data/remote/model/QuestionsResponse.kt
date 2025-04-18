@@ -1,4 +1,4 @@
-package com.example.plantapphubx.data.remote.dto
+package com.example.plantapphubx.data.remote.model
 
 data class QuestionsResponse(
     val id: Int,

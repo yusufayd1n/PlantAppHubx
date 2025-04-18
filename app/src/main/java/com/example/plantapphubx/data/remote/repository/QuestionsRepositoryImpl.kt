@@ -2,7 +2,7 @@ package com.example.plantapphubx.data.remote.repository
 
 import com.example.plantapphubx.core.util.ApiResult
 import com.example.plantapphubx.data.remote.api.APIService
-import com.example.plantapphubx.data.remote.dto.QuestionsResponse
+import com.example.plantapphubx.data.remote.model.QuestionsResponse
 import com.example.plantapphubx.domain.repository.QuestionsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow

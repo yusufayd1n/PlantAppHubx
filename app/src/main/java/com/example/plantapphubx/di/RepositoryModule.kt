@@ -1,7 +1,9 @@
 package com.example.plantapphubx.di
 
 import com.example.plantapphubx.data.remote.api.APIService
+import com.example.plantapphubx.data.remote.repository.CategoriesRepositoryImpl
 import com.example.plantapphubx.data.remote.repository.QuestionsRepositoryImpl
+import com.example.plantapphubx.domain.repository.CategoriesRepository
 import com.example.plantapphubx.domain.repository.QuestionsRepository
 import dagger.Module
 import dagger.Provides
@@ -19,5 +21,13 @@ object RepositoryModule {
         apiService: APIService
     ): QuestionsRepository {
         return QuestionsRepositoryImpl(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCategoriesRepository(
+        apiService: APIService
+    ): CategoriesRepository {
+        return CategoriesRepositoryImpl(apiService)
     }
 }

@@ -6,7 +6,7 @@
 
         <variable
             name="question"
-            type="com.example.plantapphubx.data.remote.dto.QuestionsResponse" />
+            type="com.example.plantapphubx.data.remote.model.QuestionsResponse" />
     </data>
 
     <androidx.cardview.widget.CardView

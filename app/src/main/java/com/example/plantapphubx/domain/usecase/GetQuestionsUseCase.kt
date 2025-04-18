@@ -1,7 +1,7 @@
 package com.example.plantapphubx.domain.usecase
 
 import com.example.plantapphubx.core.util.ApiResult
-import com.example.plantapphubx.data.remote.dto.QuestionsResponse
+import com.example.plantapphubx.data.remote.model.QuestionsResponse
 import com.example.plantapphubx.domain.repository.QuestionsRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
