@@ -7,7 +7,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface APIService {
-    //TODO maybe we can hide or take this into variable
     @GET("getQuestions")
     suspend fun getQuestions(): List<QuestionsResponse>
 

@@ -17,7 +17,7 @@ class CategoriesPagingSource(
             val response = apiService.getCategories(currentPage, pageSize)
 
             val data = response.data
-            val totalPages = response.meta.pagination.pageCount
+            val totalPages = response.meta.pagination.pageCount ?: 0
 
             LoadResult.Page(
                 data = data,

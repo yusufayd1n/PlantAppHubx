@@ -1,33 +1,23 @@
-package com.example.plantapphubx.data.remote.model
+package com.example.plantapphubx.data.local.entitiy
 
-data class CategoriesWrapperResponse(
-    val data: List<CategoriesResponse>,
-    val meta: Meta
-)
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
-data class Meta(
-    val pagination: Pagination
-)
-
-data class Pagination(
-    val page: Int?,
-    val pageSize: Int?,
-    val pageCount: Int?,
-    val total: Int?
-)
-
-data class CategoriesResponse(
-    val createdAt: String?,
-    val id: Int?,
-    val image: image?,
+@Entity(tableName = "categories")
+data class CategoryEntity(
+    @PrimaryKey val id: Int?,
     val name: String?,
-    val publishedAt: String?,
-    val rank: Int?,
     val title: String?,
-    val updatedAt: String?
+    val createdAt: String?,
+    val publishedAt: String?,
+    val updatedAt: String?,
+    val rank: Int?,
+    @Embedded(prefix = "image_")
+    val image: ImageEntity?
 )
 
-data class image(
+data class ImageEntity(
     val alternativeText: String?,
     val caption: String?,
     val createdAt: String?,
@@ -46,4 +36,3 @@ data class image(
     val url: String?,
     val width: Int?
 )
-

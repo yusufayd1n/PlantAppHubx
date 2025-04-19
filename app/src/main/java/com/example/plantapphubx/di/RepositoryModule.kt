@@ -1,5 +1,7 @@
 package com.example.plantapphubx.di
 
+import android.content.Context
+import com.example.plantapphubx.data.local.dao.CategoriesDao
 import com.example.plantapphubx.data.remote.api.APIService
 import com.example.plantapphubx.data.remote.repository.CategoriesRepositoryImpl
 import com.example.plantapphubx.data.remote.repository.QuestionsRepositoryImpl
@@ -8,6 +10,7 @@ import com.example.plantapphubx.domain.repository.QuestionsRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -26,8 +29,10 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideCategoriesRepository(
-        apiService: APIService
+        apiService: APIService,
+        categoryDao: CategoriesDao,
+        @ApplicationContext context: Context
     ): CategoriesRepository {
-        return CategoriesRepositoryImpl(apiService)
+        return CategoriesRepositoryImpl(apiService,categoryDao,context)
     }
 }

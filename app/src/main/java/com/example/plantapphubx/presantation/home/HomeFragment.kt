@@ -28,6 +28,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        //TODO
         homeViewModel.getQuestionsFromApi()
         homeViewModel.fetchCategories()
     }
@@ -52,10 +53,12 @@ class HomeFragment : Fragment() {
         homeViewModel.questionState.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is ApiResult.Error -> {
+                    //TODO
                     //Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
                 }
 
                 ApiResult.Loading -> {
+                    //TODO
                     //binding.progressBar.visibility = View.VISIBLE
                 }
 
@@ -84,10 +87,12 @@ class HomeFragment : Fragment() {
                 }
 
                 is ApiResult.Error -> {
+                    //TODO
                     //Toast.makeText(requireContext(), result.message ?: "Error", Toast.LENGTH_SHORT).show()
                 }
 
                 is ApiResult.Loading -> {
+                    //TODO
                     // loading
                 }
             }
