@@ -28,7 +28,12 @@ class HomeViewModel @Inject constructor(
     private val _categories = MutableLiveData<ApiResult<PagingData<CategoriesResponse>>>()
     val categories: LiveData<ApiResult<PagingData<CategoriesResponse>>> = _categories
 
-    fun getQuestionsFromApi() {
+    init {
+        getQuestionsFromApi()
+        fetchCategories()
+    }
+
+    private fun getQuestionsFromApi() {
         viewModelScope.launch {
             getQuestions()
                 .onStart { _questionState.value = ApiResult.Loading }
@@ -39,7 +44,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun fetchCategories() {
+    private fun fetchCategories() {
         viewModelScope.launch {
             getCategories()
                 .onStart { _questionState.value = ApiResult.Loading }

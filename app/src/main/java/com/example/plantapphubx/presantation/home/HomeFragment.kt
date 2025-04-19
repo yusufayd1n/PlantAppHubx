@@ -15,6 +15,8 @@ import com.example.plantapphubx.presantation.home.adapter.CategoriesAdapter
 import com.example.plantapphubx.presantation.home.adapter.QuestionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import com.example.plantapphubx.R
+import com.example.plantapphubx.core.util.applyGradientText
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -28,9 +30,6 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //TODO
-        homeViewModel.getQuestionsFromApi()
-        homeViewModel.fetchCategories()
     }
 
     override fun onCreateView(
@@ -44,68 +43,78 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         observeViewModel()
-        observeCategories()
-        setupQuestionsRecyclerView()
-        setupRecyclerView()
+        setupRecyclerViews()
+        paintTextViews()
     }
 
     private fun observeViewModel() {
-        homeViewModel.questionState.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is ApiResult.Error -> {
-                    //TODO
-                    //Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
-                }
+        homeViewModel.apply {
+            questionState.observe(viewLifecycleOwner) { result ->
+                when (result) {
+                    is ApiResult.Error -> {
+                        //TODO
+                        //Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
+                    }
 
-                ApiResult.Loading -> {
-                    //TODO
-                    //binding.progressBar.visibility = View.VISIBLE
-                }
+                    ApiResult.Loading -> {
+                        //TODO
+                        //binding.progressBar.visibility = View.VISIBLE
+                    }
 
-                is ApiResult.Success -> {
-                    //binding.progressBar.visibility = View.GONE
-                    questionsAdapter.submitList(result.data)
+                    is ApiResult.Success -> {
+                        //binding.progressBar.visibility = View.GONE
+                        questionsAdapter.submitList(result.data)
+                    }
+                }
+            }
+
+            categories.observe(viewLifecycleOwner) { result ->
+                when (result) {
+                    is ApiResult.Success -> {
+                        lifecycleScope.launch {
+                            categoriesAdapter.submitData(result.data)
+                        }
+                    }
+
+                    is ApiResult.Error -> {
+                        //TODO
+                        //Toast.makeText(requireContext(), result.message ?: "Error", Toast.LENGTH_SHORT).show()
+                    }
+
+                    is ApiResult.Loading -> {
+                        //TODO
+                        // loading
+                    }
                 }
             }
         }
+
     }
 
-    private fun setupRecyclerView() {
+    private fun setupRecyclerViews() {
         binding.rvCategories.apply {
             layoutManager = GridLayoutManager(context, 2)
             adapter = categoriesAdapter
         }
-    }
 
-    private fun observeCategories() {
-        homeViewModel.categories.observe(viewLifecycleOwner) { result ->
-            when (result) {
-                is ApiResult.Success -> {
-                    lifecycleScope.launch {
-                        categoriesAdapter.submitData(result.data)
-                    }
-                }
-
-                is ApiResult.Error -> {
-                    //TODO
-                    //Toast.makeText(requireContext(), result.message ?: "Error", Toast.LENGTH_SHORT).show()
-                }
-
-                is ApiResult.Loading -> {
-                    //TODO
-                    // loading
-                }
-            }
-        }
-    }
-
-    private fun setupQuestionsRecyclerView() {
         binding.rvQuestions.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = questionsAdapter
         }
     }
+
+    private fun paintTextViews() {
+        binding.tvPremiumTitle.applyGradientText(
+            resources.getColor(R.color.premium_title_start_color),
+            resources.getColor(R.color.premium_title_end_color)
+        )
+        binding.tvPremiumSubTitle.applyGradientText(
+            resources.getColor(R.color.premium_sub_title_start_color),
+            resources.getColor(R.color.premium_sub_title_end_color)
+        )
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()

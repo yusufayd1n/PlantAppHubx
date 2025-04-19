@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">PlantAppHubX</string>
+    <string name="greeting_text">Hi, plant lover!</string>
+    <string name="greening_time_text">Good Afternoon! ☁️</string>
+    <string name="search_text">Search for plants</string>
+    <string name="free_premium_text">FREE Premium Available</string>
+    <string name="upgrade_your_account_text">Tap to upgrade your account!</string>
+
+    //Icon descriptions
+    <string name="mail_icon_description">Mail Icon</string>
+    <string name="arrow_icon_description">Arrow Icon</string>
 </resources>
