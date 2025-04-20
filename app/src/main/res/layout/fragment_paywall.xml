@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_xx_large"
             android:paddingVertical="@dimen/padding_xx_large"
-            android:text="Try free for 3 Days"
+            android:text="@string/try_premium_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagePremiumTop" />

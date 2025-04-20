@@ -13,6 +13,7 @@
     <string name="accept_policy_text">By tapping next, you are agreeing to PlantID Terms of Use Privacy Policy.</string>
     <string name="continue_text">Continue</string>
     <string name="plant_care_text">Get plant care guides</string>
+    <string name="try_premium_text">Try free for 3 Days</string>
 
     //Icon descriptions
     <string name="mail_icon_description">Mail Icon</string>
