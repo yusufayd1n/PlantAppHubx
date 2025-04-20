@@ -50,8 +50,8 @@
                 android:drawableStart="@drawable/ic_search"
                 android:drawablePadding="@dimen/margin_medium"
                 android:hint="@string/search_text"
-                android:paddingVertical="@dimen/padding_extra_large"
-                android:paddingStart="@dimen/padding_extra_large"
+                android:paddingVertical="@dimen/padding_x_large"
+                android:paddingStart="@dimen/padding_x_large"
                 android:textColor="#000000"
                 android:textColorHint="#999999"
                 tools:ignore="RtlSymmetry" />
@@ -68,7 +68,7 @@
             android:background="@drawable/bg_premium"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:padding="@dimen/padding_extra_large"
+            android:padding="@dimen/padding_x_large"
             app:layout_constraintTop_toBottomOf="@+id/ll_greeting">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -149,7 +149,7 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:nestedScrollingEnabled="false"
-            android:padding="@dimen/padding_extra_large"
+            android:padding="@dimen/padding_x_large"
             android:scrollbars="none"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintEnd_toEndOf="parent"

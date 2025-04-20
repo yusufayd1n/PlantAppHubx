@@ -91,4 +91,8 @@ dependencies {
 
     //Gson
     implementation (libs.converter.gson)
+
+    //viewPager 2
+    implementation (libs.androidx.viewpager2)
+    implementation (libs.dotsindicator)
 }

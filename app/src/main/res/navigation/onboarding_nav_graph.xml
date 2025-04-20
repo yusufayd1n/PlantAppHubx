@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_onboarding"
+    app:startDestination="@id/welcomeFragment">
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.plantapphubx.presantation.onboarding.WelcomeFragment"
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_onBoardingFragment"
+            app:destination="@id/onBoardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingFragment"
+        android:name="com.example.plantapphubx.presantation.onboarding.OnBoardingFragment"
+        android:label="OnBoardingFragment" >
+        <action
+            android:id="@+id/action_onBoardingFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paywallFragment"
+        android:name="com.example.plantapphubx.presantation.onboarding.PaywallFragment"
+        android:label="PaywallFragment">
+
+    </fragment>
+</navigation>

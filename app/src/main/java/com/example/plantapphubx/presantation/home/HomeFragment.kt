@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
@@ -45,6 +46,7 @@ class HomeFragment : Fragment() {
         observeViewModel()
         setupRecyclerViews()
         paintTextViews()
+        handleBackPress()
     }
 
     private fun observeViewModel() {
@@ -113,6 +115,12 @@ class HomeFragment : Fragment() {
             resources.getColor(R.color.premium_sub_title_start_color),
             resources.getColor(R.color.premium_sub_title_end_color)
         )
+    }
+
+    private fun handleBackPress() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            requireActivity().finish()
+        }
     }
 
 
