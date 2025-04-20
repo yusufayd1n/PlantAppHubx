@@ -15,6 +15,10 @@
     <dimen name="margin_x_large">16dp</dimen>
     <dimen name="margin_xx_large">20dp</dimen>
     <dimen name="margin_xxx_large">24dp</dimen>
+    <dimen name="margin_5x_large">32dp</dimen>
+    <dimen name="margin_7x_large">40dp</dimen>
+    <dimen name="margin_9x_large">48dp</dimen>
+    <dimen name="margin_70">70dp</dimen>
 
     <!-- Radius -->
     <dimen name="card_corner_radius">12dp</dimen>

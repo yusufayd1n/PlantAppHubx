@@ -18,6 +18,7 @@ import com.example.plantapphubx.presantation.home.adapter.QuestionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.plantapphubx.R
+import com.example.plantapphubx.core.util.DialogUtil
 import com.example.plantapphubx.core.util.NetworkUtils
 import com.example.plantapphubx.core.util.applyGradientText
 
@@ -30,10 +31,6 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by viewModels()
     private var questionsAdapter = QuestionsAdapter()
     private val categoriesAdapter = CategoriesAdapter()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,19 +53,18 @@ class HomeFragment : Fragment() {
         homeViewModel.apply {
             questionState.observe(viewLifecycleOwner) { result ->
                 when (result) {
+                    is ApiResult.Success -> {
+                        binding.progressQuestions.visibility = View.GONE
+                        questionsAdapter.submitList(result.data)
+                    }
+
                     is ApiResult.Error -> {
-                        //TODO
-                        //Toast.makeText(requireContext(), result.message, Toast.LENGTH_SHORT).show()
+                        binding.progressQuestions.visibility = View.GONE
+                        DialogUtil.showAlert(requireContext(), result.exception.toString())
                     }
 
                     ApiResult.Loading -> {
-                        //TODO
-                        //binding.progressBar.visibility = View.VISIBLE
-                    }
-
-                    is ApiResult.Success -> {
-                        //binding.progressBar.visibility = View.GONE
-                        questionsAdapter.submitList(result.data)
+                        binding.progressQuestions.visibility = View.VISIBLE
                     }
                 }
             }
@@ -76,25 +72,25 @@ class HomeFragment : Fragment() {
             categories.observe(viewLifecycleOwner) { result ->
                 when (result) {
                     is ApiResult.Success -> {
+                        binding.progressCategories.visibility = View.GONE
                         lifecycleScope.launch {
                             categoriesAdapter.submitData(result.data)
                         }
                     }
 
                     is ApiResult.Error -> {
-                        //TODO
-                        //Toast.makeText(requireContext(), result.message ?: "Error", Toast.LENGTH_SHORT).show()
+                        binding.progressCategories.visibility = View.GONE
+                        DialogUtil.showAlert(requireContext(), result.exception.toString())
                     }
 
                     is ApiResult.Loading -> {
-                        //TODO
-                        // loading
+                        binding.progressCategories.visibility = View.VISIBLE
                     }
                 }
             }
         }
-
     }
+
 
     private fun setupRecyclerViews() {
         binding.rvCategories.apply {

@@ -7,7 +7,7 @@
         android:background="@color/white">
 
         <ImageView
-            android:id="@+id/imageWelcome"
+            android:id="@+id/iv_welcome"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:src="@drawable/onboarding_welcome"
@@ -17,34 +17,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/titleWelcome"
+            android:id="@+id/tv_welcome"
             style="@style/TextAppearance.App.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_xx_large"
-            android:layout_marginTop="32dp"
-            android:text="Welcome to Plant App"
+            android:layout_marginTop="@dimen/margin_5x_large"
+            android:text="@string/welcome_text"
             android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageWelcome"
+            app:layout_constraintTop_toBottomOf="@id/iv_welcome"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/descWelcome"
+            android:id="@+id/tv_desc_welcome"
             style="@style/TextAppearance.App.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:text="Identify more than 3000+ plants and 88% accuracy."
+            android:layout_marginStart="@dimen/margin_xx_large"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_7x_large"
+            android:text="@string/identify_plant_text"
             android:textAlignment="textStart"
             android:textColor="@color/welcome_text_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleWelcome" />
+            app:layout_constraintTop_toBottomOf="@id/tv_welcome" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mb_getStartedButton"
@@ -53,22 +51,21 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_xx_large"
             android:paddingVertical="@dimen/padding_xx_large"
-            android:text="Get Started"
-            app:layout_constraintTop_toBottomOf="@+id/imageWelcome"
+            android:text="@string/get_started"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/iv_welcome" />
 
         <TextView
             style="@style/TextAppearance.App.Sub.Body"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="@dimen/margin_9x_large"
             android:layout_marginTop="@dimen/margin_x_large"
-            android:layout_marginEnd="50dp"
-            android:text="By tapping next, you are agreeing to PlantID Terms of Use Privacy Policy."
+            android:layout_marginEnd="@dimen/margin_9x_large"
+            android:text="@string/accept_policy_text"
             android:textAlignment="center"
-            android:textColor="#597165B2"
-            android:textSize="11sp"
+            android:textColor="@color/dark_gray"
             app:layout_constraintEnd_toEndOf="@+id/mb_getStartedButton"
             app:layout_constraintStart_toStartOf="@+id/mb_getStartedButton"
             app:layout_constraintTop_toBottomOf="@+id/mb_getStartedButton" />

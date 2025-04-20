@@ -5,6 +5,14 @@
     <string name="search_text">Search for plants</string>
     <string name="free_premium_text">FREE Premium Available</string>
     <string name="upgrade_your_account_text">Tap to upgrade your account!</string>
+    <string name="ok">Ok</string>
+    <string name="welcome_text">Welcome to Plant App</string>
+    <string name="identify_plant_text">Identify more than 3000+ plants and 88% accuracy.</string>
+    <string name="get_started">Get Started</string>
+    <string name="take_a_photo_plant_text">Take a photo to identify the plant!</string>
+    <string name="accept_policy_text">By tapping next, you are agreeing to PlantID Terms of Use Privacy Policy.</string>
+    <string name="continue_text">Continue</string>
+    <string name="plant_care_text">Get plant care guides</string>
 
     //Icon descriptions
     <string name="mail_icon_description">Mail Icon</string>

@@ -7,29 +7,28 @@
         android:background="@color/white">
 
         <ImageView
-            android:id="@+id/imageProtection"
+            android:id="@+id/iv_protection"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="@dimen/margin_5x_large"
             android:src="@drawable/onboarding_take_a_photo"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_protection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_percent="0.75"/>
 
         <TextView
-            android:id="@+id/titleProtection"
+            android:id="@+id/tv_protection"
+            style="@style/TextAppearance.App.Bold.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Take a photo to identify the plant!"
-            android:textSize="24sp"
-            android:textStyle="bold"
+            android:text="@string/take_a_photo_plant_text"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="32dp" />
+            />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/mb_continue"
@@ -38,8 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_xx_large"
             android:paddingVertical="@dimen/padding_xx_large"
-            android:text="Continue"
-            app:layout_constraintTop_toBottomOf="@+id/imageProtection"
+            android:text="@string/continue_text"
+            app:layout_constraintTop_toBottomOf="@+id/iv_protection"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
 

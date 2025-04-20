@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#13231B40</color>
+    <color name="dark_gray">#597165B2</color>
     <color name="question_item_bottom_color">#33000000</color>
     <color name="main_text_color">#13231B</color>
     <color name="welcome_text_color">#808080</color>

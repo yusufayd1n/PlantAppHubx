@@ -10,7 +10,7 @@
             android:id="@+id/iv_guide"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="@dimen/margin_70"
             android:scaleType="centerCrop"
             android:src="@drawable/onboarding_guide"
             app:layout_constraintEnd_toEndOf="parent"
@@ -19,14 +19,13 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/titleProtection"
+            android:id="@+id/tv_protection"
+            style="@style/TextAppearance.App.Bold.Title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Get plant care guides"
+            android:layout_marginTop="@dimen/margin_5x_large"
+            android:text="@string/plant_care_text"
             android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -38,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/margin_xx_large"
             android:paddingVertical="@dimen/padding_xx_large"
-            android:text="Continue"
+            android:text="@string/continue_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_guide" />
