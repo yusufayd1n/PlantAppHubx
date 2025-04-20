@@ -7,11 +7,10 @@ import com.example.plantapphubx.R
 
 @BindingAdapter("imageUrl")
 fun loadImage(view: ImageView, imageUrl: String?) {
-    //TODO
     Glide.with(view.context)
         .load(imageUrl)
-        .placeholder(R.drawable.ic_launcher_foreground)
-        .error(R.drawable.ic_launcher_background)
+        .placeholder(R.drawable.place_holder)
+        .error(R.drawable.error)
         .centerCrop()
         .into(view)
 }
