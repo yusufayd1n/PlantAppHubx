@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.addCallback
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +18,7 @@ import com.example.plantapphubx.presantation.home.adapter.QuestionsAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import com.example.plantapphubx.R
+import com.example.plantapphubx.core.util.NetworkUtils
 import com.example.plantapphubx.core.util.applyGradientText
 
 @AndroidEntryPoint
@@ -47,6 +49,7 @@ class HomeFragment : Fragment() {
         setupRecyclerViews()
         paintTextViews()
         handleBackPress()
+        showInternetError()
     }
 
     private fun observeViewModel() {
@@ -120,6 +123,12 @@ class HomeFragment : Fragment() {
     private fun handleBackPress() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             requireActivity().finish()
+        }
+    }
+
+    private fun showInternetError() {
+        if (!NetworkUtils.isNetworkAvailable(requireContext())) {
+            Toast.makeText(requireContext(), R.string.internet_error_text, Toast.LENGTH_LONG).show()
         }
     }
 

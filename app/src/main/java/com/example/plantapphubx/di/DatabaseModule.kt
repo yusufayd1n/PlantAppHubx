@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.example.plantapphubx.data.local.AppDatabase
 import com.example.plantapphubx.data.local.dao.CategoriesDao
+import com.example.plantapphubx.data.local.dao.QuestionsDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,6 +20,12 @@ object DatabaseModule {
     @Singleton
     fun provideCategoriesDao(appDatabase: AppDatabase): CategoriesDao {
         return appDatabase.categoriesDao()
+    }
+
+    @Provides
+    @Singleton
+    fun provideQuestionsDao(appDatabase: AppDatabase): QuestionsDao {
+        return appDatabase.questionsDao()
     }
 
     @Provides

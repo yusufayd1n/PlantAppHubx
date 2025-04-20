@@ -1,7 +1,6 @@
 package com.example.plantapphubx.data.remote.repository
 
 import android.content.Context
-import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
@@ -14,17 +13,11 @@ import com.example.plantapphubx.data.mapper.toEntity
 import com.example.plantapphubx.data.mapper.toResponse
 import com.example.plantapphubx.data.remote.api.APIService
 import com.example.plantapphubx.data.remote.model.CategoriesResponse
-import com.example.plantapphubx.data.remote.model.QuestionsResponse
-import com.example.plantapphubx.data.remote.model.image
 import com.example.plantapphubx.data.remote.paging.CategoriesPagingSource
 import com.example.plantapphubx.domain.repository.CategoriesRepository
-import com.example.plantapphubx.domain.repository.QuestionsRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
@@ -46,13 +39,9 @@ class CategoriesRepositoryImpl @Inject constructor(
             ).flow
                 .map<PagingData<CategoriesResponse>, ApiResult<PagingData<CategoriesResponse>>> { pagingList ->
                     categoryDao.clearAll()
-                    val list = mutableListOf<CategoryEntity>()
-                    //not working
-                    pagingList.map {
-                        list.add(it.toEntity())
-                    }
-                    categoryDao.insertAll(list)
-
+                    val categoriesList =
+                        apiService.getCategories(pageSize = 25, page = 1).data.map { it.toEntity() }
+                    categoryDao.insertAll(categoriesList)
                     ApiResult.Success(pagingList)
                 }
                 .onStart {

@@ -2,6 +2,7 @@ package com.example.plantapphubx.di
 
 import android.content.Context
 import com.example.plantapphubx.data.local.dao.CategoriesDao
+import com.example.plantapphubx.data.local.dao.QuestionsDao
 import com.example.plantapphubx.data.remote.api.APIService
 import com.example.plantapphubx.data.remote.repository.CategoriesRepositoryImpl
 import com.example.plantapphubx.data.remote.repository.QuestionsRepositoryImpl
@@ -21,9 +22,11 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideQuestionsRepository(
-        apiService: APIService
+        apiService: APIService,
+        questionsDao: QuestionsDao,
+        @ApplicationContext context: Context
     ): QuestionsRepository {
-        return QuestionsRepositoryImpl(apiService)
+        return QuestionsRepositoryImpl(apiService, questionsDao, context)
     }
 
     @Provides
@@ -33,6 +36,6 @@ object RepositoryModule {
         categoryDao: CategoriesDao,
         @ApplicationContext context: Context
     ): CategoriesRepository {
-        return CategoriesRepositoryImpl(apiService,categoryDao,context)
+        return CategoriesRepositoryImpl(apiService, categoryDao, context)
     }
 }
