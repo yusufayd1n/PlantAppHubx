@@ -6,6 +6,7 @@
     <color name="dark_gray">#597165B2</color>
     <color name="question_item_bottom_color">#33000000</color>
     <color name="main_text_color">#13231B</color>
+    <color name="premium_card_background_color">#022402</color>
     <color name="welcome_text_color">#808080</color>
     <color name="premium_title_start_color">#E5C990</color>
     <color name="premium_title_end_color">#E4B046</color>

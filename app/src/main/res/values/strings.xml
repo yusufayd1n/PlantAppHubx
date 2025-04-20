@@ -14,6 +14,16 @@
     <string name="continue_text">Continue</string>
     <string name="plant_care_text">Get plant care guides</string>
     <string name="try_premium_text">Try free for 3 Days</string>
+    <string name="app_name_text">Plant App</string>
+    <string name="premium_text">Premium</string>
+    <string name="access_text">Access All Features</string>
+    <string name="one_month_text">1 Month</string>
+    <string name="one_month_price_text">$2.99/month, auto renewable</string>
+    <string name="one_year_text">1 Year</string>
+    <string name="one_year_price_text">First 3 days free, then $529,99/year</string>
+    <string name="premium_info">After the 3-day free trial period you’ll be charged ₺274.99 per year unless you cancel before the trial expires. Yearly Subscription is Auto-Renewable</string>
+    <string name="premium_options">Terms  •  Privacy  •  Restore</string>
+
 
     //Icon descriptions
     <string name="mail_icon_description">Mail Icon</string>

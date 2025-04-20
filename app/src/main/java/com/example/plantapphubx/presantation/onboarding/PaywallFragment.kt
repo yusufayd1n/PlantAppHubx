@@ -6,9 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.plantapphubx.R
 import com.example.plantapphubx.data.PreferenceManager
 import com.example.plantapphubx.databinding.FragmentPaywallBinding
+import com.example.plantapphubx.presantation.onboarding.adapter.PremiumAdapter
+import com.example.plantapphubx.presantation.onboarding.model.PremiumItemModel
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,6 +22,12 @@ class PaywallFragment : Fragment() {
 
     @Inject
     lateinit var sharedPreferencesHelper: PreferenceManager
+
+    private val premiumItems = listOf(
+        PremiumItemModel("Unlimited", "Plant Identify", R.drawable.premium_1),
+        PremiumItemModel("Faster", "Process", R.drawable.premium_2),
+        PremiumItemModel("Better", "Better Information", R.drawable.premium_2)
+    )
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +43,7 @@ class PaywallFragment : Fragment() {
             sharedPreferencesHelper.setMyBoolean(true)
             findNavController().navigate(R.id.nav_home)
         }
+        setUpRecyclerView()
     }
 
 
@@ -41,4 +51,11 @@ class PaywallFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun setUpRecyclerView() {
+        binding.rvPremium.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvPremium.adapter = PremiumAdapter(premiumItems)
+    }
+
 }
