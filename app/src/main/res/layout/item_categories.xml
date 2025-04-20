@@ -26,7 +26,7 @@
                 style="@style/TextAppearance.App.Body"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/margin_x_large"
+                android:layout_marginEnd="@dimen/margin_9x_large"
                 android:text="@{category.name}"
                 android:textAlignment="textStart"
                 android:textColor="@color/main_text_color"
