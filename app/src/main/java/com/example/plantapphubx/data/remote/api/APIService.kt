@@ -1,6 +1,5 @@
 package com.example.plantapphubx.data.remote.api
 
-import com.example.plantapphubx.data.remote.model.CategoriesResponse
 import com.example.plantapphubx.data.remote.model.CategoriesWrapperResponse
 import com.example.plantapphubx.data.remote.model.QuestionsResponse
 import retrofit2.http.GET

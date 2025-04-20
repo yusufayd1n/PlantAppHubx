@@ -8,7 +8,6 @@ import androidx.paging.map
 import com.example.plantapphubx.core.util.ApiResult
 import com.example.plantapphubx.core.util.NetworkUtils
 import com.example.plantapphubx.data.local.dao.CategoriesDao
-import com.example.plantapphubx.data.local.entitiy.CategoryEntity
 import com.example.plantapphubx.data.mapper.toEntity
 import com.example.plantapphubx.data.mapper.toResponse
 import com.example.plantapphubx.data.remote.api.APIService

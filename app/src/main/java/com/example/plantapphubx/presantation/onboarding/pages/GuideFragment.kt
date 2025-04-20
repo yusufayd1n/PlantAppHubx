@@ -6,19 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import androidx.viewpager2.widget.ViewPager2
 import com.example.plantapphubx.R
 import com.example.plantapphubx.databinding.FragmentGuideBinding
-import com.example.plantapphubx.databinding.FragmentTakeAPhotoBinding
-import com.example.plantapphubx.presantation.onboarding.OnBoardingFragment
 
 class GuideFragment : Fragment() {
     private var _binding: FragmentGuideBinding? = null
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
