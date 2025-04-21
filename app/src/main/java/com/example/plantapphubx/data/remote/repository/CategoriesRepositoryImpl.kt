@@ -15,8 +15,10 @@ import com.example.plantapphubx.data.remote.model.CategoriesResponse
 import com.example.plantapphubx.data.remote.paging.CategoriesPagingSource
 import com.example.plantapphubx.domain.repository.CategoriesRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
@@ -54,7 +56,7 @@ class CategoriesRepositoryImpl @Inject constructor(
                             )
                         )
                     )
-                }
+                }.flowOn(Dispatchers.IO)
         } else Pager(
             config = PagingConfig(
                 pageSize = 25,
@@ -65,6 +67,6 @@ class CategoriesRepositoryImpl @Inject constructor(
             .map { pagingList ->
                 val responsePagingData = pagingList.map { it.toResponse() }
                 ApiResult.Success(responsePagingData)
-            }
+            }.flowOn(Dispatchers.IO)
     }
 }
